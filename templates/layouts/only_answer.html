@@ -1,0 +1,32 @@
+{% load static %}
+
+<div class="answer_of_question">
+    <div class="row">
+        <div class="col-2">
+            <div class="avatar">
+                <img src="{{ answer.url }}" alt="" />
+            </div>
+        </div>
+        <div class="col-10">
+            <a class="question-title" href="{% url 'one_question' one_question.id %}">{{ one_question.title }}</a>
+            <div class="question-text">
+                {{ answer.text }}
+            </div>
+        </div>
+    </div>
+    <div class="row question-extra-infromation">
+        <div class="col-2 rating-counter-block">
+            <button class="btn-sm btn-block btn-primary question-button">-</button>
+            <span class="number-of-rating"> {{ answer.count_point }} </span>
+            <button class="btn-sm btn-block btn-primary question-button">+</button>
+        </div>
+        <div class="col-10">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheck{{ answer.id }}" disabled {% if answer.check_box %} checked {% endif %}>
+                <label class="form-check-label" for="flexCheck{{ answer.id }}">
+                    Correct
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

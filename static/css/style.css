@@ -1,0 +1,141 @@
+.container {
+    padding: 70px 0px;
+}
+
+.container > div {
+    margin-top: 10px;
+}
+
+.container > p {
+    color: red;
+}
+
+.container h1 {
+    display: inline-block;
+}
+
+.container > a {
+    font-size: 22px;
+    margin-left: 80px;
+    display: inline-block;
+}
+
+.confirm-ask-button {
+    width: 90px;
+    height: 45px;
+    color: white;
+    background: green;
+}
+
+.default-data-field {
+    width: 300px;
+}
+
+.settings-preview-avatar > img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10%;
+    overflow: hidden;
+}
+
+.navbar-search {
+    margin-left: 40px;
+    width: 400px;
+}
+
+.popular-tags {
+    font-size: 18px;
+}
+
+.best-member-link > a {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.no-user-log-block > a {
+    margin-left: 10px;
+}
+
+.navbar-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.navbar-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-log-block {
+    margin-left: 10px;
+}
+
+.ask-button {
+    margin-left: 20px;
+    width: 80px;
+    color: white;
+    background: green;
+}
+
+.question-focused {
+    margin-bottom: 16px;
+    padding: 16px;
+
+}
+
+.question-focused .avatar {
+    width: 100px;
+    height: 100px;
+}
+
+.question {
+    margin-bottom: 16px;
+    border: 2px solid gray;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.avatar {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    overflow: hidden;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.question-title {
+    font-size: 24px;
+}
+
+.question-button {
+    height: 32px;
+    width: 32px;
+}
+
+.question-extra-infromation {
+    margin-top: 8px;
+}
+
+.rating-counter-block {
+    text-align: center;
+}
+
+.number-of-rating {
+    padding: 0px 4px;
+    font-size: 16px;
+}
+.custom-textarea {
+    border-width: 2px; /* толщина рамки */
+    border-color: #007bff; /* цвет рамки (например, синий) */
+}

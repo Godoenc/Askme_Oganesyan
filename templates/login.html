@@ -1,0 +1,48 @@
+{% extends 'layouts/base.html'%}
+
+{% load static %}
+
+{% block loginuser %}
+    {% include 'layouts/unloginuser.html' %}
+{% endblock %}
+
+
+{% block content%}
+<h1>Log in</h1>
+<p></p>
+<form>
+    <!-- Поле Login -->
+    <div class="mb-3">
+        <label class="form-label" for="title-text-input">Login</label>
+        <input id="title-text-input" type="text" class="form-control default-data-field is-invalid"
+               placeholder="Enter your login here">
+        <!-- Подсказка для Login -->
+        <div class="form-text text-muted">Please enter your username.</div>
+        <!-- Сообщение об ошибке для Login -->
+        <div class="invalid-feedback">
+            Login is required and cannot be empty.
+        </div>
+    </div>
+
+    <!-- Поле Password -->
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control default-data-field is-invalid" id="exampleInputPassword1"
+               placeholder="Enter your password">
+
+        <!-- Подсказка для Password -->
+        <div class="form-text text-muted">Enter a strong password.</div>
+        <!-- Сообщение об ошибке для Password -->
+        <div class="invalid-feedback">
+            Password is required and must be at least 8 characters long.
+        </div>
+    </div>
+
+    <!-- Кнопка отправки -->
+    <a class="btn btn-primary mb-3" href="{% url 'index' %}" role="button">Log in</a>
+    <!-- Ссылка для создания новой учетной записи -->
+    <div>
+        <a href="{% url 'signup' %}">Create new account</a>
+    </div>
+</form>
+{% endblock %}

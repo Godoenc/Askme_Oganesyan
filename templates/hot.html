@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block loginuser %}
+    {% include 'layouts/loginuser.html' %}
+{% endblock %}
+
+
+{% block content %}
+<div class ="d-flex align-items-center">
+    <h1>Hot Questions</h1>
+    <a class="hotque fs-4 ms-4 d-inline-block" href="{% url 'index'%}">New Questions</a>
+</div>
+{% for hot_question in hot_questions %}
+<div class="question">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="avatar">
+                                <img src="{{ hot_question.url }}" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-10">
+
+                            <a class="question-title" href="one_question.html">{{ hot_question.title }}</a>
+                            <div class="question-text">
+                                {{ hot_question.text }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row question-extra-infromation">
+                        <div class="col-2 rating-counter-block">
+                            <button class="btn-sm btn-block btn-primary question-button">-</button>
+                            <span class="number-of-rating"> {{ hot_question.ratings }} </span>
+                            <button class="btn-sm btn-block btn-primary question-button">+</button>
+                        </div>
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-4">
+                                    <a href="#">answers ({{ hot_question.count_of_answers }})</a>
+                                </div>
+                                <div class="col-8">
+                                    <span>tags:</span>
+                                    {% for tag in hot_question.tags %}
+                                        <a href="{% url 'question_tag' tag %}">{{ tag }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% endfor %}
+    {% include 'layouts/pagination.html' %}
+{% endblock %}
+

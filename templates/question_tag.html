@@ -1,0 +1,50 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block loginuser %}
+    {% include 'layouts/loginuser.html' %}
+{% endblock %}
+
+{% block content %}
+    <h1>Tag: {{ current_tag }}</h1>
+{% for question in question_of_tag %}
+<div class="question">
+    <div class="row">
+        <div class="col-2">
+            <div class="avatar">
+                <img src="{{ question.url }}" alt="" />
+            </div>
+        </div>
+        <div class="col-10">
+            <a class="question-title" href="{% url 'one_question' question.id %}">{{ question.title }}</a>
+            <div class="question-text">
+                {{ question.text }}
+            </div>
+        </div>
+    </div>
+    <div class="row question-extra-infromation">
+        <div class="col-2 rating-counter-block">
+            <button class="btn-sm btn-block btn-primary question-button">-</button>
+            <span class="number-of-rating"> {{ question.ratings }} </span>
+            <button class="btn-sm btn-block btn-primary question-button">+</button>
+        </div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-4">
+                    <a href="#">answers ({{ question.count_of_answers }})</a>
+                </div>
+                <div class="col-8">
+                    <span>tags:</span>
+                    {% for tag in question.tags %}
+                        <a href="{% url 'question_tag' tag %}">{{ tag }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+    {% include 'layouts/pagination.html' %}
+{% endblock %}
+
+

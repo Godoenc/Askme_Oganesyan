@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html'%}
+
+{% load static %}
+
+{% block loginuser %}
+    {% include 'layouts/loginuser.html' %}
+{% endblock %}
+
+
+{% block content %}
+<h1>New Question</h1>
+<form>
+    <div class="mb-3">
+        <label class="form-label" for="title-text-input">Title</label>
+        <input id="title-text-input" type="text" class="form-control is-invalid">
+        <!-- Подсказка для Title -->
+        <div class="form-text text-muted">Enter a descriptive title for your question.</div>
+        <!-- Сообщение об ошибке для Title -->
+        <div class="invalid-feedback">
+            Title is required and should be at least 10 characters.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="textAreaMessage">Message</label>
+        <textarea class="form-control is-invalid" id="textAreaMessage" rows="4"></textarea>
+        <!-- Подсказка для Message -->
+        <div class="form-text text-muted">Provide detailed information about your question.</div>
+        <!-- Сообщение об ошибке для Message -->
+        <div class="invalid-feedback">
+            Message must be at least 50 characters.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="tags-text-input">Tags</label>
+        <input id="tags-text-input" type="text" class="form-control is-invalid">
+        <!-- Подсказка для Tags -->
+        <div class="form-text text-muted">Enter relevant tags, separated by commas.</div>
+        <!-- Сообщение об ошибке для Tags -->
+        <div class="invalid-feedback">
+            Please enter an existing tag or create a new one first
+        </div>
+    </div>
+
+    <a class="btn btn-outline-success confirm-ask-button d-flex justify-content-center align-items-center" href="{% url 'index' %}" role="button">ASK</a>
+</form>
+{% endblock %}

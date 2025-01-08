@@ -1,0 +1,54 @@
+{% extends 'layouts/base.html' %}
+
+{% load static %}
+
+{% block loginuser %}
+    {% include 'layouts/loginuser.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="question-focused">
+    <div class="row">
+        <div class="col-2">
+            <div class="avatar">
+                <img src="{{ one_question.url }}" alt="" />
+            </div>
+        </div>
+        <div class="col-10">
+            <span class="question-title" >{{one_question.title}}</span>
+            <div class="question-text">
+                {{ one_question.text }}
+            </div>
+        </div>
+    </div>
+    <div class="row question-extra-infromation">
+        <div class="col-2 rating-counter-block">
+            <button class="btn-sm btn-block btn-primary question-button">-</button>
+            <span class="number-of-rating">{{ one_question.ratings }}</span>
+            <button class="btn-sm btn-block btn-primary question-button">+</button>
+        </div>
+        <div class="col-10">
+            <span>tags:</span>
+            {% for tag in one_question.tags %}
+                <a href="{% url 'question_tag' tag %}">{{ tag }}</a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<div class="mb-3">
+    <label class="form-label" for="textAreaExample"></label>
+    <textarea class="form-control custom-textarea" id="textAreaExample" rows="4" style="color: #6c757d">Enter your answer here.</textarea>
+</div>
+<button type="submit" class="btn btn-outline-success confirm-ask-button ">ANSWER</button>
+
+<hr>
+{% for answer in answers %}
+    {% include 'layouts/only_answer.html'%}
+{% endfor %}
+    {% include 'layouts/pagination.html' %}
+{% endblock %}
+
+
