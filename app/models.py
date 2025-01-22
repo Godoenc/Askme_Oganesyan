@@ -1,6 +1,28 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
+class TagManager(models.Manager):
+  def get_question_count(self, tag_name):
+    """
+    Возвращает количество вопросов, связанных с указанным тегом.
+
+    :param tag_name: Название тега (str).
+    :return: Количество вопросов (int).
+    """
+    try:
+      tag = self.get(name=tag_name)
+      return tag.question_set.count()
+    except Tag.DoesNotExist:
+      return 0
+
+
+
+
+
+
+
+
 class UserMan(models.Model):
   user = models.OneToOneField(User, on_delete = models.CASCADE)
   avatar = models.ImageField(null = True, blank = True)
@@ -16,8 +38,8 @@ class Profile(models.Model):
   updated_at = models.DateTimeField(auto_now=True)
   registration_at = models.DateField()
   about_me = models.TextField(blank=True)
-  count_of_answers = models.IntegerField(null=True, blank=True)
-  count_of_questions = models.IntegerField(null=True, blank=True)
+  #count_of_answers = models.IntegerField(null=True, blank=True)
+  #count_of_questions = models.IntegerField(null=True, blank=True)
 
   def __str__(self):
     return self.name
@@ -26,7 +48,7 @@ class Profile(models.Model):
 
 class Tag(models.Model):
   name = models.CharField(max_length=255)
-  count_of_mentions = models.IntegerField(null=True, blank=True)
+  #count_of_mentions = models.IntegerField(null=True, blank=True)
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
 
@@ -71,7 +93,6 @@ class Likes_Of_Question(models.Model):
 
   def __str__(self):
     return self.title
-
 
 
 class Likes_Of_Answers(models.Model):
